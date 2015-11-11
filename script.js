@@ -2,24 +2,47 @@ var app = angular.module("myApp",[]);
 
 myController = app.controller("myController", ['$scope', function($scope){
 
+    // Initialize variables
+    // --------------------
+
     var duplicateDivs;
     var excess;
     var highestID = 0;
     var maximumShapes = 500;
     var defaultCss;
 
+    // Randomizer functions
+    // --------------------
+
     var makeRandom = function(range, minimum) {
       return (minimum || 0) + Math.round(range * Math.random());
     };
+    $scope.randomBackground = function(){
+        return "rgb(" +makeRandom(255)+ "," +makeRandom(255)+ "," +makeRandom(255)+ ")";
+    }
+    $scope.randomOpacity = function(){
+        return Math.random() * 0.7 + 0.1; // makeRandom function would round this to integer
+    }
+    $scope.randomLength = function(){
+        makeRandom( $('body').width()/6 ); // Max value is 1/6 of <body> width
+    }
+    $scope.randomBorderRadius = function(){
+        return makeRandom(100)+ "%";
+    }
 
-    // Default properties
+    // Data storage
+    // ------------
+
+    // Array of shapes
+    $scope.shapes = [1,2,3];
+
     var randomizeProps = function() {
         defaultCss = {
-            background:     "rgb(" +makeRandom(255)+ "," +makeRandom(255)+ "," +makeRandom(255)+ ")",
-            opacity:        Math.random() * 0.7 + 0.1, // makeRandom function would round this to integer
-            width:          makeRandom( $('body').width()/6 ), // Max value is 1/6 of <body> width
-            height:         makeRandom( $('body').width()/6 ),
-            borderRadius:   makeRandom(100)+ "%",
+            background:     $scope.randomBackground(),
+            opacity:        $scope.randomOpacity(),
+            width:          $scope.randomLength(),
+            height:         $scope.randomLength(),
+            borderRadius:   $scope.randomBorderRadius(),
             transform:      "rotate(" +makeRandom(180)+ "deg)",
             position:       "absolute",
             left:           makeRandom(95)+ "%",
@@ -27,9 +50,10 @@ myController = app.controller("myController", ['$scope', function($scope){
             zIndex:         -1
         }
     }
+    randomizeProps();
 
     // ng-model
-    var $scope.userCss = {
+    $scope.userCss = {
         background:     defaultCss.background,     
         opacity:        defaultCss.opacity,        
         width:          defaultCss.width,          
@@ -42,9 +66,6 @@ myController = app.controller("myController", ['$scope', function($scope){
         top:            makeRandom(95)+ "%",
         zIndex:         -1
     }
-
-    // Array of shapes
-    $scope.shapes = [1,2,3];
 
     var createProps = function() {
         highestID ++;
