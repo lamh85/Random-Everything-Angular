@@ -17,10 +17,51 @@
         <!-- START SIDE BAR -->
         <div id="side-nav-modal">
             <div id="side-nav-bar">
+                <form action="" method="">
+                    <p>
+                    <label>Background</label>
+                    <br>
+                    <input ng-model="userCss.background">
+
+                    <p>
+                    <label>Opacity</label>
+                    <br>
+                    <input ng-model="userCss.opacity">
+
+                    <p>
+                    <label>Width</label>
+                    <br>
+                    <input ng-model="userCss.width">
+
+                    <p>
+                    <label>Height</label>
+                    <br>
+                    <input ng-model="userCss.height">
+
+                    <p>
+                    <label>Border Radius</label>
+                    <br>
+                    <input ng-model="userCss.borderRadius">
+
+
+                    <!-- 
+                    var $scope.userCss = {
+        background:     defaultCss.background,     
+        opacity:        defaultCss.opacity,        
+        width:          defaultCss.width,          
+        height:         defaultCss.height,         
+        borderRadius:   defaultCss.borderRadius,   
+        transform:      defaultCss.transform,      
+        position:       defaultCss.position,       
+        left:           defaultCss.left,           
+        top:            defaultCss.top,            
+        zIndex:         defaultCss.zIndex                    
+                     -->
+                    <input>
+                </form>
             </div>
             <div id="side-nav-tab">
                 <span class="glyphicon glyphicon-menu-hamburger">
-                <!-- ALTERNATE: <span class="glyphicon glyphicon-menu-right"></span> -->
             </div>
         </div>
         <!-- END SIDE BAR -->
