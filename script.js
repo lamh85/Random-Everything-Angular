@@ -24,7 +24,7 @@ myController = app.controller("myController", ['$scope', function($scope){
         return Math.random() * 0.7 + 0.1; // makeRandom function would round this to integer
     }
     $scope.randomLength = function(){
-        makeRandom( $('body').width()/6 ); // Max value is 1/6 of <body> width
+        return makeRandom(500) + "px";
     }
     $scope.randomBorderRadius = function(){
         return makeRandom(100)+ "%";
@@ -34,7 +34,7 @@ myController = app.controller("myController", ['$scope', function($scope){
     // ------------
 
     // Array of shapes
-    $scope.shapes = [1,2,3];
+    $scope.shapes = [];
 
     var randomizeProps = function() {
         defaultCss = {
@@ -67,13 +67,26 @@ myController = app.controller("myController", ['$scope', function($scope){
         zIndex:         -1
     }
 
-    var createProps = function() {
+    var shapeObject = function(cssPropsObject) {
         highestID ++;
         // Represents one array element in $scope.shapes
         return {
             id: highestID,
-            css: $scope.userCss
+            css: cssPropsObject
         } // end array element
     };    
+
+    // ng-click
+    // --------
+
+    $scope.randomizeAll = function() {
+        randomizeProps();
+        $scope.userCss = defaultCss;
+    }
+
+    $scope.addShape = function() {
+        currentShape = shapeObject();
+        $scope.shapes.push(currentShape);
+    }
 
 }]); // Controller

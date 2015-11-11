@@ -11,8 +11,7 @@
 
     <body ng-controller="myController">
 
-        <div ng-repeat="shape in shapes">
-        </div>
+        {{ shapes }}
 
         <!-- START SIDE BAR -->
         <div id="side-nav-modal">
@@ -43,6 +42,15 @@
                     <br>
                     <input ng-model="userCss.borderRadius">
 
+                    <p>
+                    <span class="btn btn-default" ng-click="randomizeAll()">
+                        Randomize everything!
+                    </span>
+
+                    <p>
+                    <span class="btn btn-default" ng-click="addShape()">
+                        Add shape!
+                    </span>
                 </form>
             </div>
             <div id="side-nav-tab">
