@@ -1,23 +1,29 @@
-<html ng-app="MyApp">
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-  </head>
+<html ng-app="myApp">
+    <head>
+        <!-- Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
-  <body ng-app="MyController">
+        <!-- Non-libraries -->
+        <script src="script.js"></script>
+    </head>
 
-    <!-- START SIDE BAR -->
-    <div id="side-nav-modal">
-      <div id="side-nav-bar">
-      </div>
-      <div id="side-nav-tab">
-        <span class="glyphicon glyphicon-menu-hamburger">
-        <!-- ALTERNATE: <span class="glyphicon glyphicon-menu-right"></span> -->
-      </div>
-    </div>
-    <!-- END SIDE BAR -->
+    <body ng-controller="myController">
 
-  </body>
+        <div ng-repeat="shape in shapes">
+        </div>
+
+        <!-- START SIDE BAR -->
+        <div id="side-nav-modal">
+            <div id="side-nav-bar">
+            </div>
+            <div id="side-nav-tab">
+                <span class="glyphicon glyphicon-menu-hamburger">
+                <!-- ALTERNATE: <span class="glyphicon glyphicon-menu-right"></span> -->
+            </div>
+        </div>
+        <!-- END SIDE BAR -->
+
+    </body>
 </html>
