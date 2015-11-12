@@ -7,11 +7,15 @@
 
         <!-- Non-libraries -->
         <script src="script.js"></script>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body ng-controller="myController">
 
-        {{ shapes }}
+        <div class="shape">
+        </div>
+        <div class="shape" ng-repeat="shape in shapes" data-shape-id="{{shape.id}}">
+        </div>
 
         <!-- START SIDE BAR -->
         <div id="side-nav-modal">

@@ -86,9 +86,12 @@ myController = app.controller("myController", ['$scope', function($scope){
 
     $scope.addShape = function() {
         currentShape = shapeObject($scope.userCss);
-        console.log('the currentShape is: ');
-        console.log(currentShape);
         $scope.shapes.push(currentShape);
+        executeCss(currentShape);
+    }
+
+    var executeCss = function(elementJson) {
+        $('.shape:last').css( elementJson.css );
     }
 
 }]); // Controller
