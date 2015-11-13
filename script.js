@@ -84,6 +84,11 @@ myController = app.controller("myController", ['$scope', function($scope){
         $scope.userCss = defaultCss;
     }
 
+    $scope.addRandomShape = function() {
+        $scope.randomizeAll();
+        $scope.addShape();
+    }
+
     $scope.addShape = function() {
         currentShape = shapeObject($scope.userCss);
         $scope.shapes.push(currentShape);
